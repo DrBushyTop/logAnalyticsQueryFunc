@@ -34,7 +34,6 @@ namespace TotalRequestsFunc
 
             var configuration = configurationBuilder.Build();
 
-            services.AddApplicationInsightsTelemetry();
             services.AddSingleton(configuration);
             services.AddSingleton(logsQueryClient);
             services.AddHttpClient();
