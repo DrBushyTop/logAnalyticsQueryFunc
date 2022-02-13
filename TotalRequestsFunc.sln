@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TotalRequestsFunc", "TotalRequestsFunc\TotalRequestsFunc.csproj", "{98FB3E15-62A2-416C-9BB4-8E686E40542C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TotalRequestsFunc", "TotalRequestsFunc\TotalRequestsFunc.csproj", "{98FB3E15-62A2-416C-9BB4-8E686E40542C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

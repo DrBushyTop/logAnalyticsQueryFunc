@@ -1,0 +1,39 @@
+<mxfile host="65bd71144e">
+    <diagram id="hX-qmg6PMdWGr-fKCKsg" name="Page-1">
+        <mxGraphModel dx="1231" dy="729" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="9" value="Logging Resource Group" style="fontStyle=0;verticalAlign=top;align=center;spacingTop=-2;fillColor=none;rounded=0;whiteSpace=wrap;html=1;strokeColor=#919191;strokeWidth=2;dashed=1;container=1;collapsible=0;expand=0;recursiveResize=0;" vertex="1" parent="1">
+                    <mxGeometry x="330" y="72" width="200" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Function Resource Group" style="fontStyle=0;verticalAlign=top;align=center;spacingTop=-2;fillColor=none;rounded=0;whiteSpace=wrap;html=1;strokeColor=#919191;strokeWidth=2;dashed=1;container=1;collapsible=0;expand=0;recursiveResize=0;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="313" width="460" height="247" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Our Code" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/Function_Apps.svg;" vertex="1" parent="10">
+                    <mxGeometry x="101" y="57" width="68" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Managed &lt;br&gt;Identity" style="sketch=0;aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Managed_Identities.svg;" vertex="1" parent="10">
+                    <mxGeometry x="50" y="62" width="38" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="Centralized Logging" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/analytics/Log_Analytics_Workspaces.svg;" vertex="1" parent="1">
+                    <mxGeometry x="393" y="140" width="64" height="64" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Query &amp;amp; Log Aggregates" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="425" y="230" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="5" value="Key Vault" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/security/Key_Vaults.svg;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="326" width="68" height="68" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Logs &amp;amp; Monitoring" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/devops/Application_Insights.svg;" vertex="1" parent="1">
+                    <mxGeometry x="652" y="450" width="44" height="63" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Azure AD" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/identity/Azure_AD_Domain_Services.svg;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="204" width="70" height="64" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

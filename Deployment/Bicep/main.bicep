@@ -1,0 +1,43 @@
+param global object = {
+  environment: 'phprod'
+  location: 'westeurope'
+}
+param buildId string = utcNow()
+param externalLogAnalyticsResourceId string = '/subscriptions/xxxx/resourcegroups/totalrequests/providers/microsoft.operationalinsights/workspaces/totalrequestssink-la'
+
+var naming = {
+  appInsights: '${global.environment}-appi'
+  funcAppPlan: '${global.environment}-fplan'
+  funcStorage: replace(toLower('${global.environment}func'), '-', '')
+  funcApp: '${global.environment}-func'
+}
+
+module common 'common.bicep' = {
+  name: 'common-${buildId}'
+  params: {
+    externalLogAnalyticsResourceId: externalLogAnalyticsResourceId
+    global: global
+    naming: naming
+  }
+}
+
+module app 'app.bicep' = {
+  name: 'app-${buildId}'
+  params: {
+    global: global
+    naming: naming
+    externalLogAnalyticsResourceId: externalLogAnalyticsResourceId
+  }
+  dependsOn:[
+    common
+  ]
+}
+
+module permissions 'permissions.bicep' = {
+  name: 'permissions-${buildId}'
+  params: {
+    externalLogAnalyticsResourceId: externalLogAnalyticsResourceId
+    funcAppIdentityObjectId: app.outputs.funcAppIdentityObjectId
+  }
+  scope: resourceGroup(split(externalLogAnalyticsResourceId, '/')[4])
+}
