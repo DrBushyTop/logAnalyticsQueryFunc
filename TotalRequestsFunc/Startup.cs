@@ -39,11 +39,11 @@ namespace TotalRequestsFunc
                 SharedTokenCacheTenantId = Environment.GetEnvironmentVariable("AZURE_TENANT_ID")
             });
 
-            var kvClient = new SecretClient(new Uri(Environment.GetEnvironmentVariable("KEYVAULT_URL")), creds);
+            //var kvClient = new SecretClient(new Uri(Environment.GetEnvironmentVariable("KEYVAULT_URL")), creds);
 
             builder.ConfigurationBuilder
-                .AddEnvironmentVariables()
-                .AddAzureKeyVault(kvClient, new AzureKeyVaultConfigurationOptions());
+                .AddEnvironmentVariables();
+                //.AddAzureKeyVault(kvClient, new AzureKeyVaultConfigurationOptions());
         }
     }
 }

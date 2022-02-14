@@ -7,11 +7,13 @@ param externalLogAnalyticsResourceId string = '/subscriptions/ede0939c-80c4-4dfe
 
 var naming = {
   appInsights: '${global.environment}-appi'
-  functionStorage: toLower(replace('${global.environment}sto', '-', ''))
-  functionAppPlan: '${global.environment}-plan'
-  functionApp: '${global.environment}-function'
+  funcStorage: toLower(replace('${global.environment}sto', '-', ''))
+  funcAppPlan: '${global.environment}-plan'
+  funcApp: '${global.environment}-function'
   keyVault: toLower(replace('${global.environment}-kv', '-', ''))
 }
+
+var logAnalyticsResourceGroup = split(externalLogAnalyticsResourceId, '/')[4]
 
 module common 'common.bicep' = {
   name: 'common-${buildId}'
@@ -22,3 +24,23 @@ module common 'common.bicep' = {
   }
 }
 
+module app 'app.bicep' = {
+  name: 'app-${buildId}'
+  params: {
+    externalLogAnalyticsResourceId: externalLogAnalyticsResourceId
+    global: global
+    naming: naming
+  }
+  dependsOn: [
+    common
+  ]
+}
+
+module permissions 'permissions.bicep' = {
+  name: 'permissions-${buildId}'
+  params: {
+    externalLogAnalyticsResourceId: externalLogAnalyticsResourceId
+    functionIdentityObjectId: app.outputs.functionIdentityObjectId
+  }
+  scope: resourceGroup(logAnalyticsResourceGroup)
+}

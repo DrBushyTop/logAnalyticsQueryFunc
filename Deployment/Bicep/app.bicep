@@ -3,7 +3,7 @@ param naming object
 param externalLogAnalyticsResourceId string
 
 resource funcStorage 'Microsoft.Storage/storageAccounts@2021-08-01' = {
-  name: naming.functionStorage
+  name: naming.funcStorage
   location: global.location
   sku: {
     name: 'Standard_LRS'
@@ -31,6 +31,9 @@ resource funcApp 'Microsoft.Web/sites@2020-12-01' = {
       use32BitWorkerProcess: false
     }
   }
+  identity: {
+    type: 'SystemAssigned'
+  }
 }
 
 resource funcAppSettings 'Microsoft.Web/sites/config@2021-03-01' = {
@@ -49,3 +52,5 @@ resource funcAppSettings 'Microsoft.Web/sites/config@2021-03-01' = {
       'KEYVAULT_URL': 'https://${naming.keyVault}.vault.azure.net/'
   }
 }
+
+output functionIdentityObjectId string = funcApp.identity.principalId
