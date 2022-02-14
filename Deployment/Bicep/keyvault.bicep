@@ -15,7 +15,7 @@ resource keyVault 'Microsoft.KeyVault/vaults@2021-10-01' = {
       {
         tenantId: subscription().tenantId
         // Most likely should just take this in as a parameter as it's already output by the app
-        objectId: reference(resourceId('Microsoft.Web/sites', naming.FuncApp)).identity.principalId
+        objectId: reference(resourceId('Microsoft.Web/sites', naming.FuncApp), '2020-06-01', 'Full').identity.principalId
         permissions: {
           secrets: [
             'list'

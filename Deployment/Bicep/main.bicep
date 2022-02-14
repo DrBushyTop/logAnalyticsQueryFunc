@@ -10,6 +10,7 @@ var naming = {
   funcAppPlan: '${global.environment}-fplan'
   funcStorage: replace(toLower('${global.environment}func'), '-', '')
   funcApp: '${global.environment}-func'
+  keyVault: replace(toLower('${global.environment}kv'), '-', '')
 }
 
 module common 'common.bicep' = {
