@@ -33,6 +33,18 @@ module app 'app.bicep' = {
   ]
 }
 
+module keyvault 'keyvault.bicep' = {
+  name: 'keyvault-${buildId}'
+  params: {
+    global: global
+    naming: naming
+    exampleSecretValue: 'dontSaveSecretsAsPlainTextLikeThis'
+  }
+  dependsOn:[
+    app
+  ]
+}
+
 module permissions 'permissions.bicep' = {
   name: 'permissions-${buildId}'
   params: {
