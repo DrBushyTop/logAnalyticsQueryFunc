@@ -22,11 +22,3 @@ module common 'common.bicep' = {
   }
 }
 
-resource storage 'Microsoft.Storage/storageAccounts@2021-08-01' = {
-  name: naming.functionStorage
-  location: global.location
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'StorageV2'
-}
