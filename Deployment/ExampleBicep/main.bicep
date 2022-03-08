@@ -3,7 +3,7 @@ param global object = {
   location: 'westeurope'
 }
 param buildId string = utcNow()
-param externalLogAnalyticsResourceId string = '/subscriptions/xxxx/resourcegroups/totalrequests/providers/microsoft.operationalinsights/workspaces/totalrequestssink-la'
+param externalLogAnalyticsResourceId string = '/subscriptions/xxx/resourcegroups/totalrequests/providers/microsoft.operationalinsights/workspaces/totalrequestssink-la'
 
 var naming = {
   appInsights: '${global.environment}-appi'

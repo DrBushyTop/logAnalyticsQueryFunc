@@ -55,7 +55,7 @@ resource funcAppSettings 'Microsoft.Web/sites/config@2021-03-01' = {
       'FUNCTIONS_WORKER_RUNTIME': 'dotnet'
       'WEBSITE_RUN_FROM_PACKAGE': '1'
       'WORKSPACE_ID': reference(externalLogAnalyticsResourceId, '2021-12-01-preview').customerId
-      'KEYVAULT_URL': 'https://${naming.keyVault}.vault.azure.net/'
+      'KEYVAULT_URL': 'https://${naming.keyVault}${environment().suffixes.keyvaultDns}/'
   }
 }
 
